@@ -9,8 +9,8 @@ PRODUCT_NAME="Cloud Retailer Apps"
 # Group owners can manage user assignments to the groups.
 GROUP_OWNERS="srivan.gutha@igt.com"
 
-# Replace with your cost code
-COST_CODE="4514"
+# Cost center for Cloud Ops - Retail Apps is 4905
+COST_CODE="4905"  
 
 #Repalce with your team email
 TEAM_MAIL="igt.lottery.rlacloud@igt.com"

@@ -20,18 +20,19 @@ function Start-Sleep($seconds) {
     Write-Progress -Activity "Sleeping" -Status "Sleeping..." -SecondsRemaining 0 -Completed
 }
 
-cd $PSScriptRoot
+Set-Location $PSScriptRoot
 
-Echo "Starting WSL tunnels...."
+Write-Output "Starting WSL tunnels...."
 $commands = "bash -c ./sshuttle-admin-d0.sh"
 Start-Process -FilePath "wsl" -ArgumentList " -- $commands" -PassThru 
 #wsl bash -c ./sshuttle-admin-d0.sh&
-Echo "Waiting 120 seconds for tunnels to complete...."
+Write-Output "Waiting 120 seconds for tunnels to complete...."
 Start-Sleep -Seconds 120
 
-Echo "Adding route to WSL network adapter...."
+Write-Output "Adding route to WSL network adapter...."
 .\win-add-route.ps1
 
-Echo "Syncing WSL to Windows host entries...."
+Write-Output "Syncing WSL to Windows host entries...."
 .\win-sync-hosts.ps1
-Echo "Done!"
+
+Write-Output "Done!"
